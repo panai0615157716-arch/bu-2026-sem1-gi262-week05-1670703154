@@ -33,19 +33,82 @@ namespace Assignment
         /// เรียงลำดับตัวเลขจากมากไปน้อยโดยใช้ Selection Sort
         /// </summary>
         /// <param name="numbers"></param>
-        public int[] AS01_SelectionSortDescending(int[] numbers);
+        public int[] AS01_SelectionSortDescending(int[] numbers)
+        {
+            int n = numbers.Length;
+            for (int i = 0; i < n - 1; i++)
+            {
+                int maxIndex = i;
+                for (int j = i + 1; j < n; j++)
+                {
+                    if (numbers[j] > numbers[maxIndex])
+                    {
+                        maxIndex = j;
+                    }
+                }
+                int temp = numbers[maxIndex];
+                numbers[maxIndex] = numbers[i];
+                numbers[i] = temp;
+            }
+
+            foreach (var num in numbers)
+            {
+                Debug.Log(num);
+            }
+            return numbers;
+        }
+
 
         /// <summary>
         /// เรียงลำดับตัวเลขจากมากไปน้อยโดยใช้ Bubble Sort
         /// </summary>
         /// <param name="numbers"></param>
-        public int[] AS02_BubbleSortDescending(int[] numbers);
+        public int[] AS02_BubbleSortDescending(int[] numbers)
+        {
+            int n = numbers.Length;
+            for (int i = 0; i < n - 1; i++)
+            {
+                for (int j = 0; j < n - i - 1; j++)
+                {
+                    if (numbers[j] < numbers[j + 1])
+                    {
+                        int temp = numbers[j];
+                        numbers[j] = numbers[j + 1];
+                        numbers[j + 1] = temp;
+                    }
+                }
+            }
+            foreach (var num in numbers)
+            {
+                Debug.Log(num);
+            }
+            return numbers;
+        }
 
         /// <summary>
         /// เรียงลำดับตัวเลขจากมากไปน้อยโดยใช้ Insertion Sort
         /// </summary>
         /// <param name="numbers"></param>
-        public int[] AS03_InsertionSortDescending(int[] numbers);
+        public int[] AS03_InsertionSortDescending(int[] numbers)
+        {
+            int n = numbers.Length;
+            for (int i = 1; i < n; ++i)
+            {
+                int key = numbers[i];
+                int j = i - 1;
+                while (j >= 0 && numbers[j] < key)
+                {
+                    numbers[j + 1] = numbers[j];
+                    j = j - 1;
+                }
+                numbers[j + 1] = key;
+            }
+            foreach (var num in numbers)
+            {
+                Debug.Log(num);
+            }
+            return numbers;
+        }
 
         /// <summary>
         /// ค้นหาตัวเลขที่มีค่ามากเป็นอันดับสองใน array
@@ -53,7 +116,23 @@ namespace Assignment
         /// เช่น input ที่ได้รับมาคือ[1 2 3 4 5] ตัวเลขที่มีค่ามากเป็นอันดับสองคือ 4
         /// </summary>
         /// <param name="numbers"></param>
-        public int AS04_FindTheSecondLargestNumber(int[] numbers);
+        public int AS04_FindTheSecondLargestNumber(int[] numbers)
+        {
+            System.Array.Sort(numbers);
+            System.Array.Reverse(numbers);
+
+            int largest = numbers[0];
+
+            for (int i = 1; i < numbers.Length; i++)
+            {
+                if (numbers[i] < largest)
+                {
+                    return numbers[i];
+                }
+            }
+
+            return largest;
+        }
 
         #endregion
 
