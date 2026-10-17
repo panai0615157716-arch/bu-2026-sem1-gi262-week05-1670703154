@@ -39,7 +39,7 @@ namespace Solution
         }
         // Coroutine สำหรับการเคลื่อนที่ทีละช่อง
         IEnumerator MoveParade()
-        {      
+        {
             //0. สร้างหัวงู
             Parade.AddFirst(this.gameObject);
             while (isAlive)
@@ -51,7 +51,7 @@ namespace Solution
                 // 2. ดึงส่วนสุดท้ายของงูออกมา
                 LinkedListNode<GameObject> lastNode = Parade.Last;
                 GameObject lastPart = lastNode.Value;
-             
+
                 // 3. ลบส่วนสุดท้ายออกจาก LinkedList
                 Parade.RemoveLast();
 
@@ -81,7 +81,8 @@ namespace Solution
                 // (ซึ่งก็คือส่วนแรกของลำตัว)
                 Parade.AddFirst(lastNode);
                 // รอตามเวลาที่กำหนดก่อนการเคลื่อนที่ครั้งต่อไป
-                if (Parade.Count < SizeParade) {
+                if (Parade.Count < SizeParade)
+                {
                     timer++;
                     if (timer > 3)
                     {
@@ -101,7 +102,7 @@ namespace Solution
             }
             return false;
         }
-        
+
         // ฟังก์ชันสำหรับเพิ่มส่วนของงู (Grow)
         private void Grow()
         {
@@ -109,7 +110,7 @@ namespace Solution
             // กำหนดตำแหน่งเริ่มต้นของส่วนใหม่ให้อยู่ที่เดียวกับส่วนสุดท้ายของงู
             GameObject lastPart = Parade.Last.Value;
             newPart.transform.position = lastPart.transform.position;
-            mapGenerator.SetUpItem(positionX,positionY, newPart, mapGenerator.enemyParent, mapGenerator.enemy);
+            mapGenerator.SetUpItem(positionX, positionY, newPart, mapGenerator.enemyParent, mapGenerator.enemy);
             //newPart.transform.rotation = lastPart.transform.rotation;
             // เพิ่มส่วนใหม่เข้าไปใน Linked List
             Parade.AddLast(newPart);

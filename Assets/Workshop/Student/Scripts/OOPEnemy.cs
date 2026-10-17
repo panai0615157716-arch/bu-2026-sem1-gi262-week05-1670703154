@@ -30,7 +30,8 @@ namespace Solution
         public override void TakeDamage(int damage)
         {
             base.TakeDamage(damage);
-            if (txtHp != null) {
+            if (txtHp != null)
+            {
                 txtHp.text = energy.ToString();
             }
         }
@@ -74,6 +75,6 @@ namespace Solution
                 UpdatePosition(toX, toY);
             }
         }
-        
+
     }
 }

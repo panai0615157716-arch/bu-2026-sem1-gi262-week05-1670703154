@@ -1,7 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Solution {
+namespace Solution
+{
     public class Inventory : MonoBehaviour
     {
         public Dictionary<string, int> inventory = new Dictionary<string, int>();
@@ -81,4 +82,3 @@ namespace Solution {
         }
     }
 }
-

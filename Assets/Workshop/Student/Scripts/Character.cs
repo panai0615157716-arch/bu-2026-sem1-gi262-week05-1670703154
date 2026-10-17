@@ -79,7 +79,7 @@ namespace Solution
             var mapData = mapGenerator.GetMapData(x, y);
             return mapData != null;
         }
-      
+
 
         public virtual void TakeDamage(int Damage)
         {

@@ -22,7 +22,8 @@ namespace Solution
                 Debug.Log("You win");
                 return true;
             }
-            else {
+            else
+            {
                 Debug.Log("Need Item " + ItemToOpen + " to Open");
                 return false;
             }

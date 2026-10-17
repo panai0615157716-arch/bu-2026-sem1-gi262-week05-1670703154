@@ -25,9 +25,9 @@ namespace Solution
         }
         public void PrintInfo()
         {
-            Debug.Log("created " + Name +" at "+positionX + ":"+positionY);
+            Debug.Log("created " + Name + " at " + positionX + ":" + positionY);
         }
-        
+
         public virtual bool Hit()
         {
             return false;
